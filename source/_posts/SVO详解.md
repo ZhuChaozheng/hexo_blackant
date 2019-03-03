@@ -2,6 +2,7 @@
 title: SVO详解
 date: 2018-05-07 08:25:58
 tags:
+mathjax: true
 ---
 
 <script type="text/javascript" async src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
@@ -35,7 +36,7 @@ $$ X'=\frac{Xf}{Z}$$
 $$ Y'=\frac{Yf}{Z}$$
 
 
-照片上一点像素 $\vec p(u,v)$，
+照片上一点像素 $$\vec p(u,v)$$ ，
 
 $$u=\alpha X'+c_{x}$$
 $$v=\beta Y'+c_{y}$$
@@ -65,9 +66,9 @@ u\\
 v\\
 1\\
 \end{bmatrix}=KP$$
-其中 $K$ 是内参，至此就是 $\mathbb{R}^{3} \mapsto \mathbb{R}^{2}$
+其中 $$K$$ 是内参，至此就是 $$\mathbb{R}^{3} \mapsto \mathbb{R}^{2}$$
 
-我们现在将推到 $\mathbb{R}^{2} \mapsto \mathbb{R}^{3}$，不过在此之前我们必须要知道距离$d$
+我们现在将推到 $$\mathbb{R}^{2} \mapsto \mathbb{R}^{3}$$，不过在此之前我们必须要知道距离$$d$$
 
 $$ Z=d$$
 $$ X=\frac{u-c_{x}}{f_{x}}Z$$
@@ -107,12 +108,12 @@ $$=a^{\wedge}\vec b=\begin{bmatrix}
 -b_{3}&0&b_{1}\\
 b_{2}&-b_{1}&0\\
 \end{bmatrix}\vec a=-b^{\wedge}\vec a$$
-故$a^{\wedge}\vec b=-b^{\wedge}\vec a$，这个公式转换很最重要在后文中有提及
+故$$a^{\wedge}\vec b=-b^{\wedge}\vec a$$，这个公式转换很最重要在后文中有提及
 
 ### 旋转矩阵
 
 #### 刚体变换
-相机运动是一个刚体运动，他保证了同一个向量在各个坐标系下的长度和夹角都不会发生变化，这种变换属于欧式变换。欧式变换包括了旋转和平移。首先我们考虑旋转。我们设某个正交单位基 $(e_{1},e_{2},e_{3})$ 经过一次旋转后变成了 $(e'_{1},e'_{2},e'_{3})$，那么同一向量 $\vec a$，在两个坐标系下的坐标分别是 $[a_{1},a_{2},a_{3}]^T$和 $[a'_{1},a'_{2},a'_{3}]^T$。根据定义，有：
+相机运动是一个刚体运动，他保证了同一个向量在各个坐标系下的长度和夹角都不会发生变化，这种变换属于欧式变换。欧式变换包括了旋转和平移。首先我们考虑旋转。我们设某个正交单位基 $$(e_{1},e_{2},e_{3})$$ 经过一次旋转后变成了 $$(e'_{1},e'_{2},e'_{3})$$，那么同一向量 $$\vec a$$，在两个坐标系下的坐标分别是 $$[a_{1},a_{2},a_{3}]^T$$和 $$[a'_{1},a'_{2},a'_{3}]^T$$。根据定义，有：
 $$(e_{1},e_{2},e_{3})\begin{bmatrix}
 a_{1}\\
 a_{2}\\
@@ -122,11 +123,11 @@ a'_{1}\\
 a'_{2}\\
 a'_{3}\\
 \end{bmatrix}$$
-两边同时左乘一个 $\begin{bmatrix}
+两边同时左乘一个 \begin{bmatrix}
 e^T_{1}\\
 e^T_{2}\\
 e^T_{3}\\
-\end{bmatrix}$。
+\end{bmatrix}。
 
 $$\begin{bmatrix}
 a_{1}\\
@@ -150,26 +151,26 @@ a'_{2}\\
 a'_{3}\\
 \end{bmatrix}=R\vec a'$$
 
-其中 $R$ 就是旋转矩阵 *此处解释了旋转矩阵为啥是乘法*，旋转矩阵满足一下性质
+其中 $$R$$ 就是旋转矩阵 *此处解释了旋转矩阵为啥是乘法*，旋转矩阵满足一下性质
 
 1. 秩为1
 2. 该矩阵与其转置相乘等于单位矩阵
 我们把旋转矩阵的集合定义如下：
 $$SO(3)=\{R\ \in \mathbb{R}^{n*n}|RR^T=I,det(R)=1\}$$
 
-$SO(3)$是特殊正交群的意思。
+$$SO(3)是特殊正交群的意思。
 由于旋转的特殊性质，即可逆性。
 
 $$\vec a'=R^{-1}\vec a=R^T\vec a$$
 
-在欧式变换里，除了考虑旋转，还有平移。考虑到世界坐标系下的一个向量 $\vec a$,经过旋转和平移之后得到 $\vec a'$。
+在欧式变换里，除了考虑旋转，还有平移。考虑到世界坐标系下的一个向量 $$\vec a$$,经过旋转和平移之后得到 $$\vec a'$$。
 $$\vec {a'}=R\vec a+t$$
 
 
 ### 变换矩阵
-假设我们做了两次变换: $R_{1},t_{1}和 R_{2},t_{2}$，满足
+假设我们做了两次变换: $$R_{1},t_{1}和 R_{2},t_{2}$$，满足
 $$\vec b=R_{1}\vec a+t_{1}, \vec c=R_{2}\vec b+t_{2}$$
-这样一来向量 $\vec c$计算比较复杂
+这样一来向量 $$\vec c$$计算比较复杂
 $$\vec c=R_{2}(R_{1}\vec a+t_{1})+t_{2}$$
 
 引入齐次坐标和变换矩阵
@@ -187,11 +188,11 @@ R&t\\
 \vec a\\
 1\\
 \end{bmatrix}$$
-其中， $T$是变换矩阵(Transform Matrix)，本文我们定义 $\tilde{a}$ 表示 $\vec a$的齐次坐标, $\tilde{b}$ 表示 $\vec b$的齐次坐标, $\tilde{c}$ 表示 $\vec c$的齐次坐标,
+其中， $$T$$是变换矩阵(Transform Matrix)，本文我们定义 $$\tilde{a}$$ 表示 $$\vec a$$的齐次坐标, $$\tilde{b}$$ 表示 $$\vec b$$的齐次坐标, $$\tilde{c}$$ 表示 $$\vec c$$的齐次坐标,
 $$\tilde{b}=T_{1} \tilde{a},\ \ \tilde{c}=T_{2} \tilde{b} => \tilde{c}=T_{2}T_{1} \tilde{a}$$
-区分齐次和非齐次坐标符号很麻烦，我们直接就用 $\vec b=T \vec a$，代表齐次坐标。
+区分齐次和非齐次坐标符号很麻烦，我们直接就用 $$\vec b=T \vec a$$，代表齐次坐标。
 
-关于变换矩阵 $T$，它的结构比较特殊，左上角为旋转矩阵，右上角为平移向量，左下角为0向量，右下角为1。这种特殊矩阵又称为特殊欧式群（Special Euclidean Group）：
+关于变换矩阵 $$T$$，它的结构比较特殊，左上角为旋转矩阵，右上角为平移向量，左下角为0向量，右下角为1。这种特殊矩阵又称为特殊欧式群（Special Euclidean Group）：
 $$SE(3)=\begin{Bmatrix}T=\begin{bmatrix}R&t\\0^T&1\\\end{bmatrix} \in \mathbb{R}^{4*4}|R \in SO(3),t \in \mathbb{R}^3 \end{Bmatrix}$$
 
 同理该矩阵的逆
@@ -199,13 +200,13 @@ $$SE(3)=\begin{Bmatrix}T=\begin{bmatrix}R&t\\0^T&1\\\end{bmatrix} \in \mathbb{R}
 $$T^{-1}=\begin{bmatrix}R^T&-R^Tt\\0^T&1\end{bmatrix}$$
 
 ### 旋转向量
-假设有一个旋转轴为 $\vec n$，角度为 $\theta$，显然他对于的旋转向量为 $\vec n\theta$。从旋转向量都旋转矩阵的转换过程由罗德里格斯公式：
+假设有一个旋转轴为 $$\vec n$$，角度为 $$\theta$$，显然他对于的旋转向量为 $$\vec n\theta$$。从旋转向量都旋转矩阵的转换过程由罗德里格斯公式：
 $$R=cos\theta I+(1-cos\theta)\vec n\vec n^T+sin\theta \vec n^{\wedge}$$
-这里 $^\wedge$是向量到反对称矩阵的转换符，见前面公式。
+这里 $$^\wedge$$是向量到反对称矩阵的转换符，见前面公式。
 
-*补充一个知识点，单位矩阵 $I=\begin{bmatrix}1&0&0\\0&1&0\\0&0&1\end{bmatrix}$*
+*补充一个知识点，单位矩阵 I=\begin{bmatrix}1&0&0\\0&1&0\\0&0&1\end{bmatrix}*
 
-对于转角 $\theta$，有：
+对于转角 $$\theta$$，有：
 $$tr(R)=cos\theta tr(I)+(1-cos\theta)tr(\vec n \vec n^T)+sin\theta tr(\vec n^{\wedge})$$
 $$=3cos\theta +(1-cos\theta)$$
 $$=1+2cos\theta$$
@@ -213,7 +214,7 @@ $$=1+2cos\theta$$
 因此
 $$\theta=arccos(\frac{tr(R)-1}{2}) $$
 
-*注： $tr(N)$，表示求矩阵 $N$的主对角元素之和。$tr(I)=3$，因为由于前面旋转矩阵推导可知，$R$是3\*3矩阵。 $\vec n^{\wedge}$ 是对角线为0的反对称矩阵，所以 $tr(\vec n^{\wedge})=0$。*
+*注： $$tr(N)$$，表示求矩阵 $N$的主对角元素之和。$tr(I)=3$，因为由于前面旋转矩阵推导可知，$R$是3\*3矩阵。 $\vec n^{\wedge}$ 是对角线为0的反对称矩阵，所以 $tr(\vec n^{\wedge})=0$。*
 
 关于转轴 $\vec n$，由于旋转前后旋转轴不发生变化，所以
 $$R\vec n=\vec n$$
@@ -223,41 +224,41 @@ $$R\vec n=\vec n$$
 李群的主要核心是表述连续变化的特性。变换矩阵包含的实际意义就是旋转和平移，所以肯定是连续的。故旋转矩阵和变换矩阵都是李群的一种，分别是特殊正交群和特殊欧式群。
 
 ### 李代数
-#### $so(3)$
+#### $$so(3)$$
 我们知道旋转矩阵的一个性质
 $$RR^T=I$$
-它是有时间意义的，随着时间不断的变化，所以可以写成对时间的函数：$R(t)$
+它是有时间意义的，随着时间不断的变化，所以可以写成对时间的函数：$$R(t)$$
 $$R(t)R(t)^T=I$$
-对时间$t$进行求导
+对时间$$t$$进行求导
 $$\dot{R}(t)R(t)^T+\dot{R}(t)^TR(t)=0$$
 $$\dot{R}(t)R(t)^T=-\dot{R}(t)^TR(t)$$
 $$\dot{R}(t)R(t)^T=-(\dot{R}(t)R(t)^T)^T$$
-所以 $\dot{R}(t)R(t)^T$ 是反对称矩阵。由前面介绍查积所知，向量到矩阵就是一个反对称矩阵。
+所以 $$\dot{R}(t)R(t)^T$$ 是反对称矩阵。由前面介绍查积所知，向量到矩阵就是一个反对称矩阵。
 $$\vec a^{\wedge}=A=\begin{bmatrix}
 0&-a_{3}&a_{2}\\
 a_{3}&0&-a_{1}\\
 -a_{2}&a_{1}&0\\
 \end{bmatrix}, \ \ A^{\wedge}=\vec a$$
-所以 $\dot{R}(t)R(t)^T$ 必然对应一个向量 $\phi(t)^\wedge$。
+所以 $$\dot{R}(t)R(t)^T$$ 必然对应一个向量 $$\phi(t)^\wedge$$。
 
 于是
 $$\dot R(t)R(t)^T=\phi(t)^\wedge$$
 
-右乘一个$R(t)$。
+右乘一个$$R(t)$$。
 $$\dot R(t)=\phi(t)^\wedge R(t)$$
-当 $t_0=0$时，则还未开始旋转，所以 $R(t_0)=I$。 由一阶泰勒展开得：
+当 $$t_0=0$$时，则还未开始旋转，所以 $$R(t_0)=I$$。 由一阶泰勒展开得：
 $$R(t)\approx R(t_0)+\dot{R}(t_0)(t-t_0)$$
 将上式带入
 $$=I+\phi(t_0)^\wedge R(t_0)t$$
 $$=I+\phi(t_0)^\wedge t$$
 
-*我们看到 $\phi$ 反映了 $R$ 的导数性质，故称它在SO(3)原点附近的正切空间上。引用书上原话，我不是很明白*
+*我们看到 $$\phi$$ 反映了 $$R$$ 的导数性质，故称它在SO(3)原点附近的正切空间上。引用书上原话，我不是很明白*
 
-由齐次微分方程性质（*$y'+p(x)y=0$，通解为$y=Ce^{-\int p(x)dx}$*）得
+由齐次微分方程性质（*$$y'+p(x)y=0，通解为y=Ce^{-\int p(x)dx}$$*）得
 $$\dot R(t)=\phi(t)^\wedge R(t)$$
-通解$R(t)=Ce^{\phi(t)^\wedge}$
+通解$$R(t)=Ce^{\phi(t)^\wedge}$$
 
-由于初始值$R(0)=I$,我们考虑的是$t_0=0$时，此时 $\phi(t_0)^\wedge$ 为常数，故简化 $\phi(t_0)^\wedge$为 $\phi_0$所以其特解为
+由于初始值$$R(0)=I$$,我们考虑的是$$t_0=0$$时，此时 $$\phi(t_0)^\wedge$$ 为常数，故简化 $$\phi(t_0)^\wedge$$为 $$\phi_0$$所以其特解为
 $$\phi(0)^\wedge=0,\ C=I$$
 $$R(t)=e^{\phi_0^\wedge t}$$
 
@@ -266,27 +267,27 @@ $$R(t)=e^{\phi_0^\wedge t}$$
 $$R(t)=exp(\phi_0^\wedge t)$$
 
 $$\Phi=\phi^\wedge=\begin{bmatrix}0&-\phi_3&\phi_2\\\phi_3&0&-\phi_1\\-\phi_2&\phi_1&0\end{bmatrix}\in\mathbb{R}^{3\times 3} $$
-一般我们说 $so(3)$的元素是3维向量或者3维反对称矩阵。
+一般我们说 $$so(3)$$的元素是3维向量或者3维反对称矩阵。
 $$so(3)=\begin{Bmatrix} \phi \in \mathbb{R}^3, \Phi=\phi^\wedge \in \mathbb{R}^{3\times 3} \end{Bmatrix}$$
 
-与$SO(3)$的关系对应为
+与$$SO(3)$$的关系对应为
 $$R=exp(\phi^\wedge)$$
 
-#### $se(3)$
+#### $$se(3)$$
 
 同理我们可以推导
 $$se(3)=\begin{Bmatrix}\xi=\begin{bmatrix}\rho \\ \phi \end{bmatrix}\in \mathbb{R}^6,\ \rho \in \mathbb{R}^3,\ \phi \in so(3),\ \xi^\wedge=\begin{bmatrix}\phi^\wedge & \rho\\0^T&1 \end{bmatrix} \in \mathbb{R}^{4\times 4}\end{Bmatrix}$$
-每个$se(3)$ 的元素 $\xi$是六维向量，前三维是平移向量，记做 $\rho$。 后三维是旋转向量，记做 $\phi$。同时我们这里的 $\wedge$不再单纯表示向量到反对称矩阵，而是向量到矩阵的转换， $\vee$表示矩阵到向量的转换。
+每个$$se(3)$$ 的元素 $$\xi$$是六维向量，前三维是平移向量，记做 $$\rho$$。 后三维是旋转向量，记做 $$\phi$$。同时我们这里的 $$\wedge$$不再单纯表示向量到反对称矩阵，而是向量到矩阵的转换， $$\vee$$表示矩阵到向量的转换。
 
-### $SO(3)=R=\phi^\wedge$ 指数映射
+### $$SO(3)=R=\phi^\wedge$$ 指数映射
 
-由于 $\phi$是三维向量，我们可以换种方式来定义它，通过模长 $\vec a$ 和方向 $\theta$，这里 $\vec a$是长度为1的方向向量，对于 $a^\wedge$(后面我们不说明的情况下$a$就是 $\vec a$)，有以下两个性质:
+由于 $$\phi$$是三维向量，我们可以换种方式来定义它，通过模长 $$\vec a$$ 和方向 $$\theta$$，这里 $$\vec a$$是长度为1的方向向量，对于 $$a^\wedge$$(后面我们不说明的情况下$$a$$就是 $$\vec a$$)，有以下两个性质:
 
 *PS:这是人家前人发现的，我们直接用就行了*
 $$a^\wedge a^\wedge=aa^T-I$$
 $$a^\wedge a^\wedge a^\wedge=-a^\wedge$$
 
-*本文通过假设 $a^\wedge=\begin{bmatrix}0&-\frac{1}{\sqrt{3}}&\frac{1}{\sqrt{3}} \\ \frac{1}{\sqrt{3}}&0&-\frac{1}{\sqrt{3}} \\ -\frac{1}{\sqrt{3}}&\frac{1}{\sqrt{3}}&0\end{bmatrix}$，强行往里带入可以验证上述性质成立*
+*本文通过假设 $$a^\wedge=\begin{bmatrix}0&-\frac{1}{\sqrt{3}}&\frac{1}{\sqrt{3}} \\ \frac{1}{\sqrt{3}}&0&-\frac{1}{\sqrt{3}} \\ -\frac{1}{\sqrt{3}}&\frac{1}{\sqrt{3}}&0\end{bmatrix}$$ ，强行往里带入可以验证上述性质成立*
 
 由麦克劳林公式得
 
@@ -300,14 +301,14 @@ $$exp(\phi^{\wedge})=\sum_{n=0}^{\infty }\frac {1}{n!}(\phi^{\wedge})^n$$
 
 $$exp(\theta a^{\wedge})=\sum_{n=0}^{\infty }\frac {1}{n!}(\theta a^{\wedge})^n$$
 $$=I+\theta a+\frac {1}{2!}\theta^2 a^{\wedge}a^{\wedge}+\frac {1}{3!}\theta^3a^{\wedge}a^{\wedge}a^{\wedge}+\frac {1}{4!}\theta^4a^{\wedge}a^{\wedge}a^{\wedge}a^{\wedge}+...$$
-将上式关于 $a^{\wedge}$ 的次方推导公式，带入
+将上式关于 $$a^{\wedge}$$ 的次方推导公式，带入
 $$=I+\theta a+\frac {1}{2!}\theta^2 a^{\wedge}a^{\wedge}-\frac {1}{3!}\theta^3a^{\wedge}-\frac {1}{4!}\theta^4a^{\wedge}a^{\wedge}+\frac {1}{5!}\theta^5a^{\wedge}+\frac {1}{6!}\theta^6a^{\wedge}a^{\wedge}...$$
 $$=aa^T+(\theta-\frac{1}{3!}\theta^3+\frac{1}{5!}\theta^5-\frac{1}{7!}\theta^7+...)a^{\wedge}-(1-\frac{1}{2!}\theta^2+\frac{1}{4!}\theta^4-\frac{1}{6!}\theta^6+...)a^{\wedge}a^{\wedge}$$
 $$=a^{\wedge}a^{\wedge}+I+sin{\theta}a^{\wedge}-cos{\theta}a^{\wedge}a^{\wedge}$$
 $$=(1-cos{\theta})a^{\wedge}a^{\wedge}+I+sin\theta a^{\wedge}$$
 $$=cos\theta I+(1-cos\theta)aa^T+sin\theta a^{\wedge}$$
 
-### $SE(3)=T=exp(\xi^\wedge)$ 指数映射
+### $$SE(3)=T=exp(\xi^\wedge)$$ 指数映射
 
 $$exp(\xi^\wedge)=\begin{bmatrix}exp(\phi^{\wedge})&exp(\rho)\\ 0^T&0    \end{bmatrix}=\begin{bmatrix}\sum_{n=0}^{\infty }\frac {1}{n!}(\phi^{\wedge})^n&\sum_{n=0}^{\infty }\frac {1}{n!}(\rho)^n\\ 0^T&1\end{bmatrix}$$
 $$=\begin{bmatrix}\sum_{n=0}^{\infty }\frac {1}{n!}(\phi^{\wedge})^n&\sum_{n=0}^{\infty }\frac {1}{(n+1)!}(\phi^{\wedge})^n\rho\\ 0^T&1\end{bmatrix}$$
