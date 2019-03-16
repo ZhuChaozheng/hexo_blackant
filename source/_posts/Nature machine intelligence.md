@@ -3,8 +3,9 @@ title: Nature machine intelligence
 date: 2019-03-16 10:32:14
 tags:
 ---
-<!--more-->
+
 #内容分类
+<!--more-->
 ##一、理论综述
 ####(Learnability can be undecidable、)
 ###可学习性是不可决定的
