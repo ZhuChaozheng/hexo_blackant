@@ -21,7 +21,7 @@ in order to describe the relation of projection between camera and image, the im
 
 Lastly, we will talk about the pixel frame. Its origin often locates on the left upper corner and it have 2 degrees of freedom imformation. Concretely, (342, 123) means that the pixel is on the 342 rows, 123 columns.
 
-![introduction of frames](/img/introductionofframes.jpg)
+![introduction of frames](/img/introductionofframes1.png)
 
 the world frame: $X_w$, $Y_w$, $Z_w$, the camera frame: $X_c$, $Y_c$, $Z_c$, the image frame: $x$, $y$, the pixel frame: $u$, $v$
 
@@ -53,7 +53,7 @@ now, let's revise the projection of camera. firstly, we talk about the undistort
 
 It turns to talk about the transformation from the camera frame to the image frame.
 
-![the principle of projection](/img/projection.jpg)
+![the principle of projection](/img/projection1.png)
 
 Suppose that there is a point $(x_M, y_M, z_M)$ in the space, which has three degrees of freedom information when it is observed from the camera frame. So, if the undistortion happens, it can be derived as the following:
 
@@ -117,7 +117,7 @@ Thus, the Intrinsic has 4 parameters which will not change as thing goes.
 
 Lastly, it can be sum up by a graph.
 
-(lack a graph)
+![](/img/core1.png)
 
 ## Method to Solve Intrinsic and Extrinsic
 
