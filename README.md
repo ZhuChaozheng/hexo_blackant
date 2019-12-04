@@ -28,7 +28,7 @@ git clone https://github.com/ZhuChaozheng/hexo_blackant.git
 hexo gengrate/hexo g
 hexo server/hexo s
 ```
-*有关latex公式，可能会出现在本地查看部分公式有误差，但是部署到github上却能够实现的情况，以github上的为准*
+*有关latex公式，可能会出现在本地查看部分公式有误差，但是部署到github上却能够实现的情况，以github上的为准，可见https://www.jianshu.com/p/a9f26f4cd4e6*
 
 4. 修改/创建文章
 
